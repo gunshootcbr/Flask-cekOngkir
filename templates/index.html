@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Cek Ongkir</title>
+  </head>
+  <body>
+
+      <h3 class="text-center">Cek Ongkir</h3>
+    <center>
+        <p>
+            <form action="" method="post">
+                    Paket dikirim dari : 
+                        <select name="origin" id="">
+                    {% for key,value in data.items() %}
+                    {% for v in value['results'] %}
+                    <option value="{{ v['city_id'] }}">{{v['type']}} {{ v['city_name'] }}, {{ v['province'] }}</option>
+                    
+                    {% endfor %}
+                    
+                    {% endfor %}
+                </select>
+                
+                <br/>
+                
+                Paket dikirim menuju : 
+                <select name="destination" id="">
+                    {% for key,value in data.items() %}
+                    {% for v in value['results'] %}
+                    <option value="{{ v['city_id'] }}">{{v['type']}} {{ v['city_name'] }}, {{ v['province'] }}</option>
+                    
+                    {% endfor %}
+                    
+                    {% endfor %}
+                </select>
+                
+                <br/>
+
+                Berat paket yang akan dikirim (Satuan Kg) :
+                <input type="text" name="weight" id="" required>
+                
+                <br/>
+                
+                Kurir yang akan digunakan :
+                <select name="courier" id="">
+                    <option value="jne">JNE</option>
+                    <option value="pos">POS</option>
+                    <option value="tiki">TIKI</option>
+                </select>
+                <br>
+                <input type="submit" value="Cek Ongkir">
+            </form>
+        </p>
+    </center>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
